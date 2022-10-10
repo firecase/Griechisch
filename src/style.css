@@ -1,0 +1,38 @@
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial;
+    text-align: center;
+    display: grid;
+    grid-template-rows: min-content auto min-content;
+}
+
+.dark {
+    color: #fff;
+    background: rgb(31, 36, 47);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button#theme img {
+    width: 20px;
+}
+
+#header,
+#footer {
+    height: fit-content;
+}
+
+#header {
+    margin-top: 25px;
+}
+
+#content {
+    margin: 50px 0;
+}
+
+#footer {
+    align-self: end;
+}
