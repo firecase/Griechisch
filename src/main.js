@@ -12,8 +12,29 @@ var Alphabet = [
     new Buchstabe("Β", "β", "Beta", "B"),
     new Buchstabe("Γ", "γ", "Gamma", "G"),
     new Buchstabe("Δ", "δ", "Delta", "D"),
-    new Buchstabe("Ε", "ε", "Epsilon", "E")
+    new Buchstabe("Ε", "ε", "Epsilon", "E"),
+    new Buchstabe("Ζ", "ζ", "Zeta", "Z"),
+    new Buchstabe("Η", "η", "Eta", "Ä"),
+    new Buchstabe("Θ", "θ", "Theta", "TH"),
+    new Buchstabe("Ι", "ι", "Iota", "I"),
+    new Buchstabe("Κ", "κ", "Kappa", "K"),
+    new Buchstabe("Λ", "λ", "Lamda", "L"),
+    new Buchstabe("Μ", "μ", "Mü", "M"),
+    new Buchstabe("Ν", "ν", "Ny", "N"),
+    new Buchstabe("Ξ", "ξ", "Xi", "X"),
+    new Buchstabe("Ο", "ο", "Omikron", "O (kurz)"),
+    new Buchstabe("Π", "π", "Pi", "P"),
+    new Buchstabe("Ρ", "ρ", "Rho", "R"),
+    new Buchstabe("Σ", "σ", "Sigma", "S"),
+    new Buchstabe("Τ", "τ", "Tau", "T"),
+    new Buchstabe("Υ", "υ", "Ypsilon", "Y"),
+    new Buchstabe("Φ", "φ", "Phi", "F"),
+    new Buchstabe("Χ", "χ", "Chi", "CH"),
+    new Buchstabe("Ψ", "ψ", "Psi", "PS"),
+    new Buchstabe("Ω", "ω", "Omega", "O (lang)")
 ];
+
+console.log(Alphabet);
 
 function copyright() {
     var copyright = document.querySelector('#copyright');
@@ -39,7 +60,33 @@ function theme() {
     })
 }
 
+function table() {
+    var content = document.querySelector('#content');
+    var table = document.createElement('table');
+    var tbody = document.createElement('tbody');
+
+    for (var i = 0; i < 2; i++) {
+        var tr = document.createElement('tr');
+
+        for (var i = 0; i < Alphabet.length; i++) {
+            var td = document.createElement('td');
+            var text = document.createTextNode('WOW!');
+
+            td.appendChild('text');
+            tr.appendChild('td');
+        }
+
+        tbody.appendChild('tr');
+    }
+
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
+    content.appendChild(table);
+}
+
 window.addEventListener('load', () => {
     copyright();
     theme();
+    table();
 })
