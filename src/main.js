@@ -34,8 +34,6 @@ var Alphabet = [
     new Buchstabe("Ω", "ω", "Omega", "O (lang)")
 ];
 
-console.log(Alphabet);
-
 function copyright() {
     var copyright = document.querySelector('#copyright');
     var date = new Date().getFullYear();
@@ -52,10 +50,10 @@ function theme() {
     button.addEventListener('click', function() {
         if (body.className.includes('dark')) {
             body.classList.remove('dark');
-            image.src = 'src/darkmode.svg'
+            image.src = 'src/images/darkmode.svg'
         } else {
             body.classList.add('dark');
-            image.src = 'src/lightmode.svg'
+            image.src = 'src/images/lightmode.svg'
         }
     })
 }
