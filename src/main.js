@@ -34,6 +34,10 @@ var Alphabet = [
     new Buchstabe("Ω", "ω", "Omega", "O (lang)")
 ];
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
 function copyright() {
     var copyright = document.querySelector('#copyright');
     var date = new Date().getFullYear();
@@ -62,23 +66,63 @@ function table() {
     var content = document.querySelector('#content');
     var table = document.createElement('table');
     var tbody = document.createElement('tbody');
+    var thead = document.createElement('thead');
 
-    for (var i = 0; i < 2; i++) {
+    for (var a = 0; a < 1; a++) {
         var tr = document.createElement('tr');
+        var headline_one = document.createTextNode('Griechischer Buchstabe');
+        var headline_two = document.createTextNode('Aussprache');
+        var headline_three = document.createTextNode('Lateinischer Buchstabe');
 
-        for (var i = 0; i < Alphabet.length; i++) {
+        for (var b = 0; b < 3; b++) {
             var td = document.createElement('td');
-            var text = document.createTextNode('WOW!');
 
-            td.appendChild('text');
-            tr.appendChild('td');
+            if (b === 0) {
+                td.appendChild(headline_one);
+            } else if (b === 1) {
+                td.appendChild(headline_two);
+            } else {
+                td.appendChild(headline_three);
+            }
+
+            tr.appendChild(td);
         }
 
-        tbody.appendChild('tr');
+        thead.appendChild(tr);
     }
 
-    tr.appendChild(td);
-    tbody.appendChild(tr);
+    for (var a = 0; a < Alphabet.length; a++) {
+        var tr = document.createElement('tr');
+        var random_greek_letter = getRandomInt(2);
+        var random_row = getRandomInt(Alphabet.length);
+        var content_one;
+        var content_two = document.createTextNode(Alphabet[random_row].Aussprache);
+        var content_three = document.createTextNode(Alphabet[random_row].Lateinischerbuchstabe);
+
+        if (random_greek_letter === 0) {
+            content_one = document.createTextNode(Alphabet[random_row].Grossbuchstabe);
+        } else {
+            content_one = document.createTextNode(Alphabet[random_row].Kleinbuchstabe);
+        }
+
+        for (var b = 0; b < 3; b++) {
+            var td = document.createElement('td');
+
+            if (b === 0) {
+                td.appendChild(content_one);
+            } else if (b === 1) {
+                td.appendChild(content_two);
+            } else {
+                td.appendChild(content_three);
+            }
+
+            tr.appendChild(td);
+        }
+
+        tbody.appendChild(tr);
+    }
+
+    table.appendChild(thead);
     table.appendChild(tbody);
     content.appendChild(table);
 }
